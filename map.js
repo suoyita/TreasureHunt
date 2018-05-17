@@ -55,38 +55,38 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
       }
 
-function CenterMe(map){
-    var centerUI = document.createElement('select');
-    centerUI.id = "goto";
+// function CenterMe(map){
+//     var centerUI = document.createElement('select');
+//     centerUI.id = "goto";
 
-    var centerMe = document.createElement('option');
-    centerMe.value = -1;
+//     var centerMe = document.createElement('option');
+//     centerMe.value = -1;
 
-    var textNode = document.createTextNode('My Location');
-    centerMe.appendChild(textNode);
-    centerUI.appendChild(centerMe);
+//     var textNode = document.createTextNode('My Location');
+//     centerMe.appendChild(textNode);
+//     centerUI.appendChild(centerMe);
 
-    google.maps.event.addDomListener(centerUI, 'change', function(event){
-        console.log(event);
+//     google.maps.event.addDomListener(centerUI, 'change', function(event){
+//         console.log(event);
 
-        if(event.srcElement.value == -1 || event.target.value == -1){
-            navigator.geolocation.getCurrentPosition(function(location){
-                console.log(location);
-                map.setCenter({lat:location.coords.latitude,lng:location.coords.longitude});
-            }, 
-            function(location){
-                console.log(location);
-                console.log("failed");
-            });
-        }
-        else{
-            var lat = markerlist[event.srcElement.value].position.lat();
-            var lng = markerlist[event.srcElement.value].position.lng();
-            map.setCenter({lat: lat, lng: lng});
-        }
-    });
-    centerUI.style.width = "14.5em";
-    centerUI.style.marginTop = "57px";
-    centerUI.firstChild.style.fontSize = "24px";
-    return centerUI;
-}
+//         if(event.srcElement.value == -1 || event.target.value == -1){
+//             navigator.geolocation.getCurrentPosition(function(location){
+//                 console.log(location);
+//                 map.setCenter({lat:location.coords.latitude,lng:location.coords.longitude});
+//             }, 
+//             function(location){
+//                 console.log(location);
+//                 console.log("failed");
+//             });
+//         }
+//         else{
+//             var lat = markerlist[event.srcElement.value].position.lat();
+//             var lng = markerlist[event.srcElement.value].position.lng();
+//             map.setCenter({lat: lat, lng: lng});
+//         }
+//     });
+//     centerUI.style.width = "14.5em";
+//     centerUI.style.marginTop = "57px";
+//     centerUI.firstChild.style.fontSize = "24px";
+//     return centerUI;
+// }
