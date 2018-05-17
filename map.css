@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#map{ 
+    width: 100vw;
+    height: 100vh;
+}
+
+.top-level {
+  position: fixed;
+  top: 50px;
+  width: 20%;
+  padding: 5%;
+}
+
+.bottom-level {
+  position: fixed;
+  bottom: 50px;
+  width: 20%;
+  padding: 5%;
+}
+
+.level.is-mobile .level-item {
+  margin-right: 0;
+}
+
+/*select {
+ 
+  border: solid 1px #000;
+
+ 
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+
+  
+  background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+
+
+  
+  padding-right: 14px;
+}
+select::-ms-expand { display: none; }*/
+
+select{
+        /*font-family: "微软雅黑";*/
+        /*margin:100px;*/
+        background: rgba(0,0,0,0);
+        width: 80px;
+        height: 30px;
+        /*font-size: 18px;*/
+        color: red;
+        text-align: center;
+        border: 1px #1a1a1a solid;
+        border-radius: 5px;
+    }
+option{
+    color: black;
+    background: #A6E1EC;
+    line-height: 20px;
+}
+select:focus{
+    border: 2px #ddd solid;
+    box-shadow: 0 0 15px 1px #DDDDDD;
+}
+option:hover{
+    background: #EBCCD1;
+}
