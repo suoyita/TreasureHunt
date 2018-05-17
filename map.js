@@ -4,7 +4,7 @@ function initMap() {
           zoom: 16
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
-        
+        var marker;
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
@@ -13,7 +13,7 @@ function initMap() {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            var marker = new google.maps.Marker({
+            marker = new google.maps.Marker({
         	     position: pos,
         	     map: map
         	});
@@ -29,18 +29,20 @@ function initMap() {
         }
 
         document.getElementById('position').addEventListener("click", function(){
+          marker.setMap(null);
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            var marker = new google.maps.Marker({
+            marker = new google.maps.Marker({
                position: pos,
                map: map
           });
             // infoWindow.setPosition(pos);
             // infoWindow.setContent('Location found.');
             map.setCenter(pos);
+            // markers.setMap(null);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
