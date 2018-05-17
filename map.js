@@ -4,7 +4,7 @@ function initMap() {
           zoom: 16
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
-        // var centerControl = new CenterMe(map);
+        
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
