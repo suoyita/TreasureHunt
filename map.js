@@ -20,6 +20,7 @@ function initMap() {
             // infoWindow.setPosition(pos);
             // infoWindow.setContent('Location found.');
             map.setCenter(pos);
+            marker.setMap(null);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
