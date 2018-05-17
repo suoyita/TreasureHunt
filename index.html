@@ -50,7 +50,20 @@
         </div>
         
 
+<<<<<<< HEAD
       
     
+=======
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrpKi81aeUPiICWDbLnPj-_nYgRBGCw7M&callback=initMap">
+    </script>
+>>>>>>> 081bd258a147ce3b14b2af4c223758226bb91132
 </body>
 </html>
