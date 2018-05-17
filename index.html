@@ -9,7 +9,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrpKi81aeUPiICWDbLnPj-_nYgRBGCw7M&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrpKi81aeUPiICWDbLnPj-_nYgRBGCw7M&callback=initMap&v=3&libraries=geometry">
     </script>
     <script type="text/javascript" src="map.js"></script>
     <link rel="stylesheet" type="text/css" href="map.css">
@@ -17,17 +17,24 @@
      
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+       <!--  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCrpKi81aeUPiICWDbLnPj-_nYgRBGCw7M&sensor=false&v=3&libraries=geometry"></script> -->
 </head>
 
 <body>
       <div id="map"></div>
     
-     
+     <div id="floating-panel">
+      <input id="address" type="textbox" value="kth">
+      <input id="submit" type="button" value="Geocode">
+    </div>
        	<div class="top-level">
         <div class="level is-mobile">
             <textarea class="level-left">Treasure Hunt Introduction</textarea>
-            <ons-button id="position">Position</ones-button>
         </div>
+        </div>
+
+        <div class="but">
+        	<ons-button id="position">Position</ons-button>
         </div>
 
         <div class="bottom-level">
