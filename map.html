@@ -62,7 +62,10 @@ var street = getQueryVariable("street");
 var intro = getQueryVariable("intro");
 var hint = getQueryVariable("hint");
 var sensitivity = getQueryVariable("sensitivity");
-alert(street);
+// alert(street);
+
+var read=JSON.parse(localStorage.getItem('addr'));
+alert(read);
 
 document.getElementById("Introduction").innerHTML = intro;
 document.getElementById("Hint").innerHTML = hint;

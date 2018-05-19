@@ -22,7 +22,7 @@
 <ons-navigator swipeable id="myNavigator" page="index.html"></ons-navigator>
 
 <script>
-alert(0);
+alert(1);
 var sensitivity;
 var addr = new Array();
 var intro = new Array();
@@ -82,6 +82,8 @@ var submit = function() {
 	sensitivity = document.getElementById('sens').value;
 
 	alert(sensitivity);
+
+	localStorage.setItem('addr',JSON.stringify(addr));
 
     window.location.href='map.html?'+"street="+ addr[0] + "&intro=" + intro[0] + "&hint=" + hint[0] + "&sensitivity=" + sensitivity;
 };

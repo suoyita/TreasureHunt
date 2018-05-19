@@ -64,6 +64,7 @@ function initMap() {
             alert(distance);
             if(distance <= minDistnace){
               document.getElementById("Introduction").innerHTML = "Congratulations!";
+              
             }
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
