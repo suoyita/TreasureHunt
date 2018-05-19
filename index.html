@@ -61,7 +61,7 @@ var count = 1;
  </div>
 </ons-page>
 
-<ons-template id="location.html">
+<!-- <ons-template id="location.html">
   <ons-page id="location">
 	<ons-card>
 	<div class="center"><script>document.write('Location ' + count)</script></div>
@@ -72,7 +72,7 @@ var count = 1;
 		</div>
 	</ons-card>
   </ons-page>
-</ons-template>
+</ons-template> -->
 
 <div id="app"></div>
 
@@ -85,7 +85,7 @@ document.addEventListener('init', function(event) {
     page.querySelector('#submit').onclick = function() {
       document.querySelector('#myNavigator').pushPage('map.html', {data: {sensitivity: document.getElementById('sens').value}});
     };
-  } else if (page.id === 'ma') {
+  } else if (page.id === 'map') {
     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
   }
 });
