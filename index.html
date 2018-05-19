@@ -22,86 +22,81 @@
 <ons-navigator swipeable id="myNavigator" page="index.html"></ons-navigator>
 
 <script>
-alert(1);
-var sensitivity,latitude,longitude,intro,hint;
+alert(0);
+var sensitivity;
+var addr = new Array();
+var intro = new Array();
+var hint = new Array();
 var count = 1;
 
 </script>
 
-<ons-page id="index">
+<ons-page>
 	<ons-toolbar>
       <div class="center">Treasure Hunt</div>
     </ons-toolbar>
- <div>
- <ons-card>
-	<div style="text-align:center"><script>document.write('Location ' + count)</script></div>
-	<div>Street Number</div>
+ <div id="card">
+ <ons-card id="Location">
+	<div style="text-align:center" id="title"></div>
+	<div>Address</div>
 	<p>
-		<!-- <p style="width:100px;"><ons-input id="lati" modifier="underbar" type="number" placeholder="Latitude" float></ons-input></p>-
-		<p style="width:100px;"><ons-input id="lont" modifier="underbar" type="number" placeholder="Longitude" float></ons-input></p> -->
-		<ons-input id="street" modifier="underbar" type="text" placeholder="Please input the street number of the treasure where you hide" float></ons-input>
+		<ons-input name="address" modifier="underbar" type="text" placeholder="Street & Number" float></ons-input>
 	</p>
 	<div>Introduction</div>
 	<p>
-		<ons-input id="intro" modifier="underbar" type="text" placeholder="Introduction to the place you choose" float></ons-input>
+		<ons-input name="intro" modifier="underbar" type="text" placeholder="Introduction to the place" float></ons-input>
 	</p>
 	<div>Hint</div>
 	<p>
-		<ons-input id="hint" modifier="underbar" type="text" placeholder="Hint for next station" float></ons-input>
+		<ons-input name="hint" modifier="underbar" type="text" placeholder="Hint for next station" float></ons-input>
 	</p>
+	<ons-button modifier="quiet" onclick="plus()">+</ons-button>
  </ons-card>
-
+</div>
  <ons-card>
 	<div>Sensitivity</div>
 	<p>
 		<ons-input id="sens" modifier="underbar" type="number" placeholder="Sensitivity" float></ons-input>
 	</p>
 	<p>
-	<ons-button id="submit" onclick="submit()" >Submit</ons-button>
+	<ons-button onclick="submit()">Submit</ons-button>
 	</p>
  </ons-card>
- </div>
 </ons-page>
-
-<!-- <ons-template id="location.html">
-  <ons-page id="location">
-	<ons-card>
-	<div class="center"><script>document.write('Location ' + count)</script></div>
-    <div class="my-header">
-		</div>
-		<div class="my-content">
-			<h1>Feel Your Feet</h1>
-		</div>
-	</ons-card>
-  </ons-page>
-</ons-template> -->
 
 <!-- <div id="app"></div> -->
 
+
+
+
+
 <script>
-
-// document.addEventListener('init', function(event) {
-//   var page = event.target;
-
-//   if (page.id === 'index') {
-//     page.querySelector('#submit').onclick = function() {
-//       document.querySelector('#myNavigator').pushPage('map.html', {data: {sensitivity: document.getElementById('sens').value}});
-//     };
-//   } else if (page.id === 'map') {
-//     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-//   }
-// });
-
 var submit = function() {
-
+	var doms = document.getElementsByName('address');
+	for (var i = 0; i < doms.length/2; i++)
+	{
+	addr[i] = document.getElementsByName('address')[2*i].value;
+	intro[i] = document.getElementsByName('intro')[2*i].value;
+	hint[i] = document.getElementsByName('hint')[2*i].value;
+	}
 	sensitivity = document.getElementById('sens').value;
-	street= document.getElementById('street').value;
-	intro = document.getElementById('intro').value;
-	hint = document.getElementById('hint').value;
 
 	alert(sensitivity);
-	// var data = ["street="+street, intro, hint, sensitivity];
 
-    window.location.href='map.html?'+"street="+ street + "&intro=" + intro + "&hint=" + hint + "&sensitivity=" + sensitivity;  
+    window.location.href='map.html?'+"street="+ addr[0] + "&intro=" + intro[0] + "&hint=" + hint[0] + "&sensitivity=" + sensitivity;
 };
+
+var plus = function(){
+
+	count = count + 1;
+	var div = document.createElement("ons-card");
+	div.id = "Location " + count;
+	div.innerHTML = document.getElementById('Location').innerHTML;
+	$('#card').append(div);
+}
+</script>
+
+
+	  
+
 </script>
