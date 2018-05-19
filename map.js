@@ -125,3 +125,4 @@ function computeDistance(p1, p2){
   var d = R * c;
   return d; // returns the distance in meter
 }
+

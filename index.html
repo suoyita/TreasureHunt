@@ -99,8 +99,8 @@ var submit = function() {
 	hint = document.getElementById('hint').value;
 
 	alert(street);
-	var data = [street, intro, hint, sensitivity];
+	// var data = ["street="+street, intro, hint, sensitivity];
 
-    window.location.href='map.html?data='+data;  
+    window.location.href='map.html?'+"street="+ street + "&intro=" + intro + "&hint=" + hint + "&sensitivity=" + sensitivity;  
 };
 </script>
