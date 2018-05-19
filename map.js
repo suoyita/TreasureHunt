@@ -10,6 +10,7 @@ var locationOrigem;
 var locationDestino;
 var minDistnace = 2000;
 var distance;
+var flag = 0;
 
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -65,9 +66,10 @@ function initMap() {
             distance = computeDistance(currentPosition, objectPosition);
             alert(distance);
             if(distance <= minDistnace){
-                document.getElementById("Introduction").innerHTML = intro[0];
-                document.getElementById("Hint").innerHTML = hint[1];
-                geocodeAddress(geocoder, map, addr[1]);
+                flag++;
+                document.getElementById("Introduction").innerHTML = intro[flag-1];
+                document.getElementById("Hint").innerHTML = hint[flag];
+                geocodeAddress(geocoder, map, addr[flag]);
 
               // document.getElementById("Introduction").innerHTML = "Congratulations!";
 
