@@ -25,10 +25,10 @@
       <!-- <ons-page id="map"> -->
       <div id="map"></div>
     
-     <div id="floating-panel">
+     <!-- <div id="floating-panel">
       <input id="address" type="textbox" value="kth">
       <input id="submit" type="button" value="Geocode">
-    </div>
+    </div> -->
        	<div class="top-level">
         <div class="level is-mobile">
             <textarea class="level-left" id="Introduction"></textarea>
@@ -58,17 +58,20 @@
        return(false);
 }
 
-var street = getQueryVariable("street");
-var intro = getQueryVariable("intro");
-var hint = getQueryVariable("hint");
-var sensitivity = getQueryVariable("sensitivity");
+// var street = getQueryVariable("street");
+// var intro = getQueryVariable("intro");
+// var hint = getQueryVariable("hint");
+// var sensitivity = getQueryVariable("sensitivity");
 // alert(street);
 
-var read=JSON.parse(localStorage.getItem('addr'));
-alert(read[0]);
+var addr=JSON.parse(localStorage.getItem('addr'));
+var intro=JSON.parse(localStorage.getItem('intro'));
+var hint=JSON.parse(localStorage.getItem('hint'));
+var read=localStorage.getItem('sensitivity');
+alert(intro);
 
-document.getElementById("Introduction").innerHTML = intro;
-document.getElementById("Hint").innerHTML = hint;
+document.getElementById("Introduction").innerHTML = "";
+document.getElementById("Hint").innerHTML = hint[0];
 </script>
       
     

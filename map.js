@@ -18,6 +18,7 @@ function initMap() {
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
         var marker;
+        var geocoder = new google.maps.Geocoder();
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
@@ -41,7 +42,7 @@ function initMap() {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-
+        geocodeAddress(geocoder, map, addr[0]);
         document.getElementById('position').addEventListener("click", function(){
           marker.setMap(null);
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -55,6 +56,7 @@ function initMap() {
           });
             // infoWindow.setPosition(pos);
             // infoWindow.setContent('Location found.');
+
             map.setCenter(pos);
             currentPosition.lat = position.coords.latitude;
             currentPosition.lng = position.coords.longitude;
@@ -63,19 +65,23 @@ function initMap() {
             distance = computeDistance(currentPosition, objectPosition);
             alert(distance);
             if(distance <= minDistnace){
-              document.getElementById("Introduction").innerHTML = "Congratulations!";
-              
+                document.getElementById("Introduction").innerHTML = intro[0];
+                document.getElementById("Hint").innerHTML = hint[1];
+                geocodeAddress(geocoder, map, addr[1]);
+
+              // document.getElementById("Introduction").innerHTML = "Congratulations!";
+
             }
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
         });
 
-        var geocoder = new google.maps.Geocoder();
+        
 
-        document.getElementById('submit').addEventListener('click', function() {
-          geocodeAddress(geocoder, map);
-        });
+        // document.getElementById('submit').addEventListener('click', function() {
+        //   geocodeAddress(geocoder, map);
+        // });
         
         
       }
@@ -87,8 +93,8 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
       }
 
-function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value;
+function geocodeAddress(geocoder, resultsMap, addr) {
+        var address = addr;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             // resultsMap.setCenter(results[0].geometry.location);
