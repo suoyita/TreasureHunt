@@ -26,6 +26,7 @@ var sensitivity,latitude,longitude,intro,hint;
 var count = 1;
 
 </script>
+<template id="index.html">
 <ons-page id="index">
 	<ons-toolbar>
       <div class="center">Treasure Hunt</div>
@@ -60,6 +61,7 @@ var count = 1;
  </ons-card>
  </div>
 </ons-page>
+</template>
 
 <!-- <ons-template id="location.html">
   <ons-page id="location">
@@ -78,17 +80,17 @@ var count = 1;
 
 <script>
 
-// document.addEventListener('init', function(event) {
-//   var page = event.target;
+document.addEventListener('init', function(event) {
+  var page = event.target;
 
-//   if (page.id === 'index') {
-//     page.querySelector('#submit').onclick = function() {
-//       document.querySelector('#myNavigator').pushPage('map.html', {data: {sensitivity: document.getElementById('sens').value}});
-//     };
-//   } else if (page.id === 'map') {
-//     page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-//   }
-// });
+  if (page.id === 'index') {
+    page.querySelector('#submit').onclick = function() {
+      document.querySelector('#myNavigator').pushPage('map.html', {data: {sensitivity: document.getElementById('sens').value}});
+    };
+  } else if (page.id === 'map') {
+    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+  }
+});
 
 // var submit = function() {
 
