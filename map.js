@@ -70,7 +70,9 @@ function initMap() {
                 document.getElementById("Introduction").innerHTML = intro[flag-1];
                 document.getElementById("Hint").innerHTML = hint[flag];
                 geocodeAddress(geocoder, map, addr[flag]);
-
+                if(flag == len){
+                  document.getElementById("Introduction").innerHTML = "Congratulations! You have found all the treasures!";
+                }
               // document.getElementById("Introduction").innerHTML = "Congratulations!";
 
             }

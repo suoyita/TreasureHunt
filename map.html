@@ -68,7 +68,8 @@ var addr=JSON.parse(localStorage.getItem('addr'));
 var intro=JSON.parse(localStorage.getItem('intro'));
 var hint=JSON.parse(localStorage.getItem('hint'));
 var read=localStorage.getItem('sensitivity');
-alert(intro);
+var len = addr.length;
+alert(len);
 
 document.getElementById("Introduction").innerHTML = "";
 document.getElementById("Hint").innerHTML = hint[0];
