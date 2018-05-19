@@ -31,7 +31,7 @@
     </div>
        	<div class="top-level">
         <div class="level is-mobile">
-            <textarea class="level-left" id="Introduction">Treasure Hunt Introduction</textarea>
+            <textarea class="level-left" id="Introduction"></textarea>
         </div>
         </div>
 
@@ -41,7 +41,7 @@
 
         <div class="bottom-level">
         	<div class="level is-mobile">
-        		<textarea class="level-left" id="Hint">Treasure Hunt Hint</textarea>
+        		<textarea class="level-left" id="Hint"></textarea>
         	</div>
         </div>
         <!-- </ons-page> -->
@@ -63,6 +63,9 @@ var intro = getQueryVariable("intro");
 var hint = getQueryVariable("hint");
 var sensitivity = getQueryVariable("sensitivity");
 alert(street);
+
+document.getElementById("Introduction").innerHTML = intro;
+document.getElementById("Hint").innerHTML = hint;
 </script>
       
     
