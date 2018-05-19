@@ -8,7 +8,8 @@ var objectPosition = {
 };
 var locationOrigem;
 var locationDestino;
-var minDistnace = 20;
+var minDistnace = 2000;
+var distance;
 
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -59,6 +60,11 @@ function initMap() {
             currentPosition.lng = position.coords.longitude;
             // alert(currentPosition.lat);
             // markers.setMap(null);
+            distance = computeDistance(currentPosition, objectPosition);
+            alert(distance);
+            if(distance <= minDistnace){
+              document.getElementById("Introduction").innerHTML = "Congratulations!";
+            }
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -84,20 +90,20 @@ function geocodeAddress(geocoder, resultsMap) {
         var address = document.getElementById('address').value;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
+            // resultsMap.setCenter(results[0].geometry.location);
+            // var marker = new google.maps.Marker({
+            //   map: resultsMap,
+            //   position: results[0].geometry.location
+            // });
             objectPosition.lat = results[0].geometry.location.lat();
             objectPosition.lng = results[0].geometry.location.lng();
             // alert(objectPosition.lat);
             var curPoint = new google.maps.LatLng(currentPosition.lat, currentPosition.lng);
             var objPoint = new google.maps.LatLng(objectPosition.lat, objectPosition.lng);
-            // alert(curPoint);
-            // var distance = new google.maps.geometry.spherical.computeDistanceBetween(curPoint, objPoint);
-            var distance = computeDistance(currentPosition, objectPosition);
-            alert(distance);
+            // distance = computeDistance(currentPosition, objectPosition);
+            // alert(distance);
+
+
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }

@@ -1,50 +1,102 @@
 <!DOCTYPE html>
-<html>
+
 <head>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
-  <script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
-   <title>Geolocation</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrpKi81aeUPiICWDbLnPj-_nYgRBGCw7M&callback=initMap&v=3&libraries=geometry">
-    </script>
-    <script type="text/javascript" src="map.js"></script>
-    <link rel="stylesheet" type="text/css" href="map.css">
-        <link rel="manifest" href="/manifest.json">
-     
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-       <!--  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCrpKi81aeUPiICWDbLnPj-_nYgRBGCw7M&sensor=false&v=3&libraries=geometry"></script> -->
+  <script>
+  //ons.platform.select('android')
+  ons.platform.select('ios')
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+  <style>
+  .page-content {padding: 10px;}
+  .fixed-bottom {position: fixed;bottom: 0;width:100%;}
+  </style>
+  <style>
+    @import 'page.css';
+  </style>
 </head>
 
-<body>
-      <div id="map"></div>
-    
-     <div id="floating-panel">
-      <input id="address" type="textbox" value="kth">
-      <input id="submit" type="button" value="Geocode">
-    </div>
-       	<div class="top-level">
-        <div class="level is-mobile">
-            <textarea class="level-left">Treasure Hunt Introduction</textarea>
-        </div>
-        </div>
+<ons-navigator swipeable id="myNavigator" page="index.html"></ons-navigator>
 
-        <div class="but">
-        	<ons-button id="position">Position</ons-button>
-        </div>
+<script>
+var sensitivity,latitude,longitude,intro,hint;
+var count = 1;
 
-        <div class="bottom-level">
-        	<div class="level is-mobile">
-        		<textarea class="level-left">Treasure Hunt Hint</textarea>
-        	</div>
-        </div>
-        
+</script>
+<ons-page id="index">
+	<ons-toolbar>
+      <div class="center">Treasure Hunt</div>
+    </ons-toolbar>
+ <div>
+ <ons-card>
+	<div style="text-align:center"><script>document.write('Location ' + count)</script></div>
+	<div>Street Number</div>
+	<p>
+		<!-- <p style="width:100px;"><ons-input id="lati" modifier="underbar" type="number" placeholder="Latitude" float></ons-input></p>-
+		<p style="width:100px;"><ons-input id="lont" modifier="underbar" type="number" placeholder="Longitude" float></ons-input></p> -->
+		<ons-input id="street" modifier="underbar" type="text" placeholder="Please input the street number of the treasure where you hide" float></ons-input>
+	</p>
+	<div>Introduction</div>
+	<p>
+		<ons-input id="intro" modifier="underbar" type="text" placeholder="Introduction to the place you choose" float></ons-input>
+	</p>
+	<div>Hint</div>
+	<p>
+		<ons-input id="hint" modifier="underbar" type="text" placeholder="Hint for next station" float></ons-input>
+	</p>
+ </ons-card>
 
-      
-    
-</body>
-</html>
+ <ons-card>
+	<div>Sensitivity</div>
+	<p>
+		<ons-input id="sens" modifier="underbar" type="number" placeholder="Sensitivity" float></ons-input>
+	</p>
+	<p>
+	<ons-button id="submit" onclick="submit()">Submit</ons-button>
+	</p>
+ </ons-card>
+ </div>
+</ons-page>
+
+<ons-template id="location.html">
+  <ons-page id="location">
+	<ons-card>
+	<div class="center"><script>document.write('Location ' + count)</script></div>
+    <div class="my-header">
+		</div>
+		<div class="my-content">
+			<h1>Feel Your Feet</h1>
+		</div>
+	</ons-card>
+  </ons-page>
+</ons-template>
+
+<div id="app"></div>
+
+<script>
+
+document.addEventListener('init', function(event) {
+  var page = event.target;
+
+  if (page.id === 'index') {
+    page.querySelector('#submit').onclick = function() {
+      document.querySelector('#myNavigator').pushPage('map.html', {data: {sensitivity: document.getElementById('sens').value}});
+    };
+  } else if (page.id === 'map') {
+    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+  }
+});
+
+// var submit = function() {
+
+// 	sensitivity = document.getElementById('sens').value;
+// 	street= document.getElementById('street').value;
+// 	intro = document.getElementById('intro').value;
+// 	hint = document.getElementById('hint').value;
+
+//     initMap();
+// };
+</script>
