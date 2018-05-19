@@ -56,7 +56,7 @@ var count = 1;
 		<ons-input id="sens" modifier="underbar" type="number" placeholder="Sensitivity" float></ons-input>
 	</p>
 	<p>
-	<ons-button onclick="submit()" >Submit</ons-button>
+	<ons-button id="submit" onclick="submit()" >Submit</ons-button>
 	</p>
  </ons-card>
  </div>
@@ -99,7 +99,8 @@ var submit = function() {
 	hint = document.getElementById('hint').value;
 
 	alert(street);
+	var data = [street, intro, hint, sensitivity];
 
-    window.location.href='map.html';  
+    window.location.href='map.html?data='+data;  
 };
 </script>
