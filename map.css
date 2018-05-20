@@ -9,10 +9,10 @@ body{
 }
 
 .top-level {
-/*  position: fixed;
-  top: 50px;*/
-/*  width: 30px;
-  padding: 5%;
+  position: fixed;
+  top: 50px;
+  width: 30px;
+/*  padding: 5%;
   flex: 1;
  display: flex;
  flex-flow: row;*/
