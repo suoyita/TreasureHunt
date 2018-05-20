@@ -8,15 +8,15 @@ body{
     height: 100vh;
 }
 
-/*.top-level {
+.top-level {
   position: fixed;
   top: 50px;
-  width: 30px;
+/*  width: 30px;
   padding: 5%;
   flex: 1;
  display: flex;
- flex-flow: row;
-}*/
+ flex-flow: row;*/
+}
 
 /*.level-right{
   position: fixed;
