@@ -8,7 +8,7 @@ var objectPosition = {
 };
 var locationOrigem;
 var locationDestino;
-var minDistnace = sensitivity;
+var minDistnace;
 var distance;
 var flag = 0;
 
@@ -65,7 +65,7 @@ function initMap() {
             // markers.setMap(null);
             distance = computeDistance(currentPosition, objectPosition);
             alert(distance);
-            if(distance <= minDistnace){
+            if(distance <= sensitivity){
                 flag++;
                 document.getElementById("Introduction").innerHTML = intro[flag-1];
                 document.getElementById("Hint").innerHTML = hint[flag];
