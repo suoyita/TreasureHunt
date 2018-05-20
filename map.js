@@ -120,7 +120,7 @@ function geocodeAddress(geocoder, resultsMap, addr) {
         });
       }
 
-var rad = function(x) {
+function rad(x) {
   return x * Math.PI / 180;
 };
 
