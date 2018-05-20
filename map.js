@@ -8,7 +8,7 @@ var objectPosition = {
 };
 var locationOrigem;
 var locationDestino;
-var minDistnace = 2000;
+var minDistnace = sensitivity;
 var distance;
 var flag = 0;
 
