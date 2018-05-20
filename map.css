@@ -11,21 +11,33 @@ body{
 .top-level {
   position: fixed;
   top: 50px;
-  width: 30px;
-  padding: 5%;
+/*  width: 30px;
+  padding: 5%;*/
+  flex: 1;
+ display: flex;
+ flex-flow: row;
 }
 
-.level-right{
+/*.level-right{
   position: fixed;
   right: 30px;
   display:table-cell;
-}
+}*/
 
 .bottom-level {
   position: fixed;
   bottom: 50px;
   width: 20%;
   padding: 5%;
+}
+
+textarea {
+ flex: 1;
+ display: block;
+ margin: 2px 0;
+ padding: 1px;
+ border: 1px solid;
+ resize: none;
 }
 
 .but{
@@ -40,8 +52,11 @@ body{
     font-size: 16px;
 }
 
-.level.is-mobile .level-item {
-  margin-right: 0;
+.level{
+  flex: 1;
+ display: flex;
+ flex-flow: column;
+ margin: 0px 3px;
 }
 
 #floating-panel {
