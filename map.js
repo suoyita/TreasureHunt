@@ -63,7 +63,7 @@ function initMap() {
             // alert(currentPosition.lat);
             // markers.setMap(null);
             distance = computeDistance(currentPosition, objectPosition);
-            alert(distance);
+            // alert(distance);
             if(distance <= sensitivity){
                 flag++;
                 document.getElementById("Introduction").innerHTML = intro[flag-1];
