@@ -11,13 +11,13 @@ body{
 .top-level {
   position: fixed;
   top: 50px;
-  width: 20%;
+  width: 40px;
   padding: 5%;
 }
 
 .level-right{
   position: fixed;
-  right: 50px;
+  right: 30px;
 }
 
 .bottom-level {
