@@ -9,9 +9,9 @@ body{
 }
 
 .top-level {
-  position: fixed;
+/*  position: fixed;
   top: 50px;
-  width: 30px;
+  width: 30px;*/
 /*  padding: 5%;
   flex: 1;
  display: flex;
@@ -29,7 +29,7 @@ body{
 }
 .level-left {
     resize: none;
-    border : 2px solid red;
+    border : 2px solid;
     height:125px;
 }
 
