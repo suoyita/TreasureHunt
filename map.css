@@ -11,13 +11,14 @@ body{
 .top-level {
   position: fixed;
   top: 50px;
-  width: 40px;
+  width: 30px;
   padding: 5%;
 }
 
 .level-right{
   position: fixed;
   right: 30px;
+  display:table-cell;
 }
 
 .bottom-level {
