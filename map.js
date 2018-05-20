@@ -8,7 +8,6 @@ var objectPosition = {
 };
 var locationOrigem;
 var locationDestino;
-var minDistnace;
 var distance;
 var flag = 0;
 
