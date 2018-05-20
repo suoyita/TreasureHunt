@@ -66,7 +66,7 @@ function initMap() {
             // alert(distance);
             if(distance <= sensitivity){
                 flag++;
-                document.getElementById("Introduction").innerHTML = intro[flag-1];
+                document.getElementById("Introduction").innerHTML = intro[flag];
                 document.getElementById("Hint").innerHTML = hint[flag];
                 geocodeAddress(geocoder, map, addr[flag]);
                 if(flag == len){
